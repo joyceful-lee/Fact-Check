@@ -4,6 +4,11 @@ from services.article_loading import get_all_articles
 
 main = Blueprint('main', __name__)
 
+@main.before_first_request
+def create_tables():
+    # Create tables if they don't exist
+    db.create_all()
+
 @main.route('/', methods=['GET', 'POST'])
 def index():
     articles = Article.query.all()
