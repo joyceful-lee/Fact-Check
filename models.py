@@ -33,3 +33,5 @@ class Correction(db.Model):
 
     def __repr__(self):
         return f"<Correction {self.id!r} for Article {self.article_id!r}>"
+    
+
