@@ -1,8 +1,13 @@
 from flask import Flask
 from models import db, Article, Correction
 from routes import main
+import os
 
 app = Flask(__name__)
+
+
+os.makedirs("instance", exist_ok=True)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/factcheck.db'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
