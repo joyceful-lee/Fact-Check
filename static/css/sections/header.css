@@ -1,0 +1,86 @@
+.landing {
+    opacity: 0;
+    animation: 2s ease-in 2s 1 forwards alternate fadeIn;
+}
+
+.header__nav {
+    display: flex;
+    overflow: hidden;
+}
+
+.header__logo {
+    flex: 1;
+    display: flex;
+
+    position: relative;
+}
+
+.header__logo img {
+    width: 120px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.header__logo h4 {
+    padding-left: 10px;
+
+    font-weight: 700;
+    font-size: 48px;
+    text-transform: uppercase;
+    font-family: var(--fugaz-one);
+    color: var(--deep-navy);
+    z-index: 5;
+}
+
+.header__menu,
+.header__menu-mobile {
+    padding: 20px;
+    flex: 1.236;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 64px;
+
+    list-style: none;
+}
+
+.header__menu li {
+    font-weight: 500;
+    font-family: var(--fugaz-one);
+    color: var(--theme-blue);
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+ul#nav li a:hover,
+ul#nav li.active a {
+    color: var(--burnt-rose);
+}
+
+.header__menu li img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.header__menu-mobile {
+    display: none;
+    gap: 20px;
+
+    position: relative;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

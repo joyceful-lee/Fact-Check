@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Cardo:ital,wght@0,400;0,700;1,400&family=Petit+Formal+Script&&family=Italianno&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url("sections/header.css");
+@import url("sections/footer.css");
+@import url("sections/timeline.css");
+@import url("sections/reading.css");
+@import url("sections/people.css");
+
+@font-face {
+  font-family: 'daily-croquete';
+  src: url('../fonts/Daily\ Croquete.otf') format('opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --gloock: "Gloock", serif;
+  --work-sans: "Work Sans", serif;
+  --montserrat: "Montserrat", serif;
+  --daily-croquete: "daily-croquete", serif;
+  --italianno: "Italianno", serif;
+  --cardo: "Cardo", serif;
+  --petit: "Petit Formal Script", serif;
+
+  /* THEME COLORS */
+  --grey: #CCCCCC;
+  --white: #FEFEFE;
+  --steam: #EDECEC;
+  --pale-green: #E0E7D7;
+  --sage: #b7c396;
+  --burnt-rose: #BA9A91;
+  --muted-blue: #8DA6B7;
+
+  /* SHADES */
+  --black: #000000;
+  --grey: #7a7a7a;
+  --white: #fff;
+  --cream: #e7ecef;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: var(--pale-green);
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  gap: 0;
+  padding: 2rem;
+}
+
+img.bg {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 50%;
+  z-index: -2;
+}
+
+@media screen and (max-width: 1024px) {
+  img.bg {
+    left: 50%;
+    margin-left: -512px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

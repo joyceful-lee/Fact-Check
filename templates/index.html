@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+    <img src="{{ url_for('static', filename='assets/bg1.jpg') }}" class="bg">
+    <div id="page-wrap"></div>
+  <header class="landing">
+    <nav class="header__nav">
+      <div class="header__logo">
+        <h4>
+          <a href="./index.html">
+            <img src="{{ url_for('static', filename='assets/logo.png') }}"></a>
+        </h4>
+      </div>
+      <ul class="header__menu" id="nav">
+        <li class="active">
+          <a href="./index.html">Home</a>
+        </li>
+        <!-- <li>
+          <a href="./EO.html">Executive Orders</a>
+        </li> -->
+      </ul>
+      <ul class="header__menu-mobile">
+        <li>
+          <img src="assets/menu.svg" alt="menu" />
+        </li>
+      </ul>
+    </nav>
+  </header>
+    <section class="reading">
+        <div class="wrapper">
+            <h1>Government Claims. Examined.</h1>
+        </div>
+        <div class="article-selection">
+            <form action="/" method="POST">
+                <label for="article_id">Select Article:</label>
+                <select name="article_id" id="article_id" required>
+                    <option value="">-- Choose an article --</option>
+                    {% for article in articles %}
+                    <option value="{{ article.id }}" {% if selected_article and article.id == selected_article.id %} selected {% endif %}>{{ article.title }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <button type="submit">Load File</button>
+            </form>
+        </div>
+        <publication>
+            {% if selected_article %}
+            <div class="content">
+                <h2><a href="{{ selected_article.link }}" target="_blank">{{ selected_article.title }}</a></h2><br>
+                <h4>{{ selected_article.date_published[:10] }}</h4>
+                {{ selected_article.content | safe }}
+            </div>
+            <script id="corrections-data" type="application/json">
+                {{ corrections | tojson }}
+            </script>
+            {% endif %}
+
+        </publication>
+    </section>
+    <footer class="footer flex-between">
+
+    <ul class="footer__nav">
+      <li><a href="index.html">Home</a></li>
+      <!-- <li><a href="EO.html">Executive Orders</a></li> -->
+    </ul>
+  </footer>
+{% endblock %}
