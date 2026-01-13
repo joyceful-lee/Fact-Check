@@ -1,6 +1,6 @@
 from flask import Flask
 from models import db, Article, Correction
-from routes import *
+from routes import main
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/factcheck.db'
