@@ -1,13 +1,7 @@
 from flask import Blueprint, render_template, request
-from models import db, Article, Correction
-from services.article_loading import get_all_articles
+from models import Article, Correction
 
 main = Blueprint('main', __name__)
-
-@main.before_app_request
-def create_tables():
-    # Create tables if they don't exist
-    db.create_all()
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -19,10 +13,9 @@ def index():
         article_id = request.form.get("article_id")
         selected_article = Article.query.get(article_id)
         if selected_article:
-            # Convert corrections to list of dicts
             corrections = [
                 {"explanation": c.explanation} 
-                for c in selected_article.relationship  # or selected_article.corrections if you named it that
+                for c in selected_article.relationship
             ]
 
     return render_template(
